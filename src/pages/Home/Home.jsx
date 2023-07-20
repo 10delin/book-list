@@ -6,21 +6,18 @@ import { SearchBooks } from "../../components/SearchBooks/SearchBooks";
 import { SelectGenre } from "../../components/SelectGenre/SelectGenre";
 import { PagesNumber } from "../../components/PagesNumber/PagesNumber";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 export const Home = () => {
   const [books, setBooks] = useState(BOOKS.library);
   const [newBooks, setNewBooks] = useLocalStorage("newBooks", []);
 
-  useEffect(() => {
-    if (newBooks.length === 0) return;
+  const filteredBooks = useMemo(() => {
+    if (newBooks.length === 0) return books;
+
     const newBooksTitles = newBooks.map((book) => book.book.title);
-    const booksToSave = books.filter(
-      (book) => !newBooksTitles.includes(book.book.title)
-    );
-    setBooks(booksToSave);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newBooks]);
+    return books.filter((book) => !newBooksTitles.includes(book.book.title));
+  }, [books, newBooks]);
 
   return (
     <div>
@@ -29,8 +26,8 @@ export const Home = () => {
         <SelectGenre books={BOOKS} setBooks={setBooks} />
         <PagesNumber books={BOOKS} setBooks={setBooks} />
 
-        <h1>Libros disponibles: {books.length}</h1>
-        {books.map((book) => {
+        <h1>Libros disponibles: {filteredBooks.length}</h1>
+        {filteredBooks.map((book) => {
           return (
             <AvaliableBooks
               key={book.book.title}
