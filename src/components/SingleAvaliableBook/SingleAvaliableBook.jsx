@@ -6,7 +6,7 @@ export const SingleAvaliableBook = ({
   avaliableBooks,
 }) => {
   const addBook = (e) => {
-    const selectedBookTitle = e.target.textContent;
+    const selectedBookTitle = e.target.alt;
     const book = avaliableBooks.find(
       (book) => book.book.title === selectedBookTitle
     );
@@ -15,9 +15,14 @@ export const SingleAvaliableBook = ({
 
   return (
     <div>
-      <p onClick={addBook} style={{ cursor: "pointer" }}>
-        {book.book.title}
-      </p>
+      <p>{book.book.title}</p>
+      <img
+        onClick={addBook}
+        style={{ cursor: "pointer" }}
+        src={book.book.cover}
+        alt={book.book.title}
+        width={200}
+      />
     </div>
   );
 };

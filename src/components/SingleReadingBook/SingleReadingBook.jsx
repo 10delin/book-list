@@ -28,7 +28,13 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
 
   return (
     <div>
-      <h2>{book.book.title}</h2>
+      <p>{book.book.title}</p>
+      <img
+        style={{ cursor: "pointer" }}
+        src={book.book.cover}
+        alt={book.book.title}
+        width={200}
+      />
       <button disabled={priority === 2} onClick={() => changePriority("sum")}>
         ⬆
       </button>
