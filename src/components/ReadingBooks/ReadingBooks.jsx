@@ -1,27 +1,22 @@
-import React from "react";
 import PropTypes from "prop-types";
+import { SingleReadingBook } from "../SingleReadingBook/SingleReadingBook";
 
-export const ReadingBooks = ({ book }) => {
-  return (
-    <React.Fragment>
-      <h2>{book.book.title}</h2>
-      {/* <button
-            onClick={() => setPriority((prevPriority) => prevPriority + 1)}
-          >
-            ⬆
-          </button>
-          <label>Prioridad {priority}</label>
-          <button
-            onClick={() => setPriority((prevPriority) => prevPriority - 1)}
-          >
-            ⬇
-          </button> */}
-    </React.Fragment>
-  );
+export const ReadingBooks = ({ newBooks, setNewBooks }) => {
+  const bookPriority = newBooks.sort((a, b) => b.priority - a.priority);
+
+  return bookPriority.map((book) => {
+    return (
+      <SingleReadingBook
+        key={book.book.title}
+        book={book}
+        newBooks={newBooks}
+        setNewBooks={setNewBooks}
+      />
+    );
+  });
 };
 
 ReadingBooks.propTypes = {
-  book: PropTypes.object.isRequired,
-  setPriority: PropTypes.func.isRequired,
-  priority: PropTypes.number.isRequired,
+  newBooks: PropTypes.array.isRequired,
+  setNewBooks: PropTypes.func.isRequired,
 };
