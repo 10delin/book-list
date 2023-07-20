@@ -2,20 +2,20 @@ import PropTypes from "prop-types";
 import { normaliceText } from "../../utils/normaliceText";
 import { useState } from "react";
 
-export const SearchBooks = ({ books, setBooks }) => {
+export const SearchBooks = ({ setBooks, originalBooks }) => {
   const [bookTitle, setBookTitle] = useState("");
 
   const onSearchTitle = (e) => {
     e.preventDefault();
 
-    const searchTitle = books.library.filter((book) =>
+    const searchTitle = originalBooks.filter((book) =>
       normaliceText(book.book.title).includes(normaliceText(bookTitle))
     );
 
     if (searchTitle.length === 0) {
       alert("No se encontró el libro");
       setBookTitle("");
-      setBooks(books.library);
+      setBooks(originalBooks);
       return;
     }
     setBooks(searchTitle);
@@ -23,7 +23,7 @@ export const SearchBooks = ({ books, setBooks }) => {
 
   const removeFilter = () => {
     setBookTitle("");
-    setBooks(books.library);
+    setBooks(originalBooks);
   };
 
   return (
@@ -46,6 +46,6 @@ export const SearchBooks = ({ books, setBooks }) => {
 };
 
 SearchBooks.propTypes = {
-  books: PropTypes.object.isRequired,
   setBooks: PropTypes.func.isRequired,
+  originalBooks: PropTypes.array.isRequired,
 };

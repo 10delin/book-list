@@ -2,14 +2,13 @@ import BOOKS from "../../utils/books.json";
 
 import { AvaliableBooks } from "../../components/AvaliableBooks/AvaliableBooks";
 import { ReadingBooks } from "../../components/ReadingBooks/ReadingBooks";
-import { SearchBooks } from "../../components/SearchBooks/SearchBooks";
-import { SelectGenre } from "../../components/SelectGenre/SelectGenre";
-import { PagesNumber } from "../../components/PagesNumber/PagesNumber";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useMemo, useState } from "react";
+import { BookFilterContainer } from "../../components/BookFilterContainer/BookFilterContainer";
 
 export const Home = () => {
-  const [books, setBooks] = useState(BOOKS.library);
+  const originalBooks = BOOKS.library;
+  const [books, setBooks] = useState(originalBooks || []);
   const [newBooks, setNewBooks] = useLocalStorage("newBooks", []);
 
   const filteredBooks = useMemo(() => {
@@ -22,10 +21,10 @@ export const Home = () => {
   return (
     <div>
       <div>
-        <SearchBooks books={BOOKS} setBooks={setBooks} />
-        <SelectGenre books={BOOKS} setBooks={setBooks} />
-        <PagesNumber books={BOOKS} setBooks={setBooks} />
-
+        <BookFilterContainer
+          setBooks={setBooks}
+          originalBooks={originalBooks}
+        />
         <h1>Libros disponibles: {filteredBooks.length}</h1>
         {filteredBooks.map((book) => {
           return (

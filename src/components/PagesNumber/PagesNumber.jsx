@@ -1,19 +1,19 @@
 import { useState } from "react";
 import propTypes from "prop-types";
 
-export const PagesNumber = ({ books, setBooks }) => {
+export const PagesNumber = ({ setBooks, originalBooks }) => {
   const [maxPages, setMaxPages] = useState("");
 
   const onFilterPages = (e) => {
     e.preventDefault();
 
-    const filterPages = books.library.filter(
+    const filterPages = originalBooks.filter(
       (book) => book.book.pages <= maxPages
     );
 
     if (filterPages.length === 0) {
       alert("No hay libros con esas paginas");
-      setBooks(books.library);
+      setBooks(originalBooks);
       setMaxPages("");
       return;
     }
@@ -36,6 +36,6 @@ export const PagesNumber = ({ books, setBooks }) => {
 };
 
 PagesNumber.propTypes = {
-  books: propTypes.object.isRequired,
   setBooks: propTypes.func.isRequired,
+  originalBooks: propTypes.array.isRequired,
 };

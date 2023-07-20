@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 
-export const SelectGenre = ({ books, setBooks }) => {
+export const SelectGenre = ({ setBooks, originalBooks }) => {
   const uniqueGenres = [
-    ...new Set(books.library.map((book) => book.book.genre)),
+    ...new Set(originalBooks.map((book) => book.book.genre)),
   ];
 
   const onGenreValue = (e) => {
     const genreValue = e.target.value;
     if (genreValue === "") {
-      setBooks(books.library);
+      setBooks(originalBooks);
       return;
     }
-    const booksByGenre = books.library.filter(
+    const booksByGenre = originalBooks.filter(
       (book) => book.book.genre === genreValue
     );
     setBooks(booksByGenre);
@@ -35,6 +35,6 @@ export const SelectGenre = ({ books, setBooks }) => {
 };
 
 SelectGenre.propTypes = {
-  books: PropTypes.object.isRequired,
   setBooks: PropTypes.func.isRequired,
+  originalBooks: PropTypes.array.isRequired,
 };
