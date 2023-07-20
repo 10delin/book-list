@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import BOOKS from "../../utils/books.json";
 
 import { AvaliableBooks } from "../../components/AvaliableBooks/AvaliableBooks";
@@ -7,10 +5,11 @@ import { ReadingBooks } from "../../components/ReadingBooks/ReadingBooks";
 import { SearchBooks } from "../../components/SearchBooks/SearchBooks";
 import { SelectGenre } from "../../components/SelectGenre/SelectGenre";
 import { PagesNumber } from "../../components/PagesNumber/PagesNumber";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export const Home = () => {
-  const [books, setBooks] = useState(BOOKS.library);
-  const [newBooks, setNewBooks] = useState([]);
+  const [books, setBooks] = useLocalStorage("books", BOOKS.library);
+  const [newBooks, setNewBooks] = useLocalStorage("newBooks", []);
 
   return (
     <div>
@@ -20,10 +19,10 @@ export const Home = () => {
         <PagesNumber books={BOOKS} setBooks={setBooks} />
 
         <h1>Libros disponibles: {books.length}</h1>
-        {books.map((book, index) => {
+        {books.map((book) => {
           return (
             <AvaliableBooks
-              key={index}
+              key={book.book.title}
               books={BOOKS}
               book={book}
               setBooks={setBooks}
