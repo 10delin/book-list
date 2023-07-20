@@ -6,10 +6,21 @@ import { SearchBooks } from "../../components/SearchBooks/SearchBooks";
 import { SelectGenre } from "../../components/SelectGenre/SelectGenre";
 import { PagesNumber } from "../../components/PagesNumber/PagesNumber";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
-  const [books, setBooks] = useLocalStorage("books", BOOKS.library);
+  const [books, setBooks] = useState(BOOKS.library);
   const [newBooks, setNewBooks] = useLocalStorage("newBooks", []);
+
+  useEffect(() => {
+    if (newBooks.length === 0) return;
+    const newBooksTitles = newBooks.map((book) => book.book.title);
+    const booksToSave = books.filter(
+      (book) => !newBooksTitles.includes(book.book.title)
+    );
+    setBooks(booksToSave);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newBooks]);
 
   return (
     <div>
@@ -26,6 +37,7 @@ export const Home = () => {
               books={BOOKS}
               book={book}
               setBooks={setBooks}
+              newBooks={newBooks}
               setNewBooks={setNewBooks}
             />
           );

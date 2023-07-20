@@ -1,15 +1,12 @@
 import PropTypes from "prop-types";
 
-export const AvaliableBooks = ({ book, setNewBooks, setBooks, books }) => {
+export const AvaliableBooks = ({ book, setNewBooks, books }) => {
   const addBook = (e) => {
     const selectedBookTitle = e.target.textContent;
     const book = books.library.find(
       (book) => book.book.title === selectedBookTitle
     );
     setNewBooks((prevNewBooks) => [...prevNewBooks, book]);
-    setBooks((prevBooks) =>
-      prevBooks.filter((book) => book.book.title !== selectedBookTitle)
-    );
   };
 
   return (
