@@ -16,6 +16,15 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
     }
   };
 
+  const removeBook = () => {
+    const newBooksCopy = [...readingBooks];
+    const index = newBooksCopy.findIndex(
+      (bookCopy) => bookCopy.book.title === book.book.title
+    );
+    newBooksCopy.splice(index, 1);
+    setReadingBooks(newBooksCopy);
+  };
+
   useEffect(() => {
     const newBooksCopy = [...readingBooks];
     const index = newBooksCopy.findIndex(
@@ -28,13 +37,9 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
 
   return (
     <div>
+      <button onClick={removeBook}>❌</button>
       <p>{book.book.title}</p>
-      <img
-        style={{ cursor: "pointer" }}
-        src={book.book.cover}
-        alt={book.book.title}
-        width={200}
-      />
+      <img src={book.book.cover} alt={book.book.title} width={200} />
       <button disabled={priority === 2} onClick={() => changePriority("sum")}>
         ⬆
       </button>
