@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { PagesNumber } from "../PagesNumber/PagesNumber";
 import { SearchBooks } from "../SearchBooks/SearchBooks";
 import { SelectGenre } from "../SelectGenre/SelectGenre";
+import { ResetFilter } from "../ResetFilter/ResetFilter";
 
 export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
   return (
@@ -16,6 +17,10 @@ export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
         setAvaliableBooks={setAvaliableBooks}
       />
       <PagesNumber
+        originalBooks={originalBooks}
+        setAvaliableBooks={setAvaliableBooks}
+      />
+      <ResetFilter
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />

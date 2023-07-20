@@ -6,6 +6,7 @@ import { AvaliableBooksContainer } from "../../components/AvaliableBooksContaine
 import { ReadingBooksContainer } from "../../components/ReadingBooksContainer/ReadingBooksContainer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { BookFilterContainer } from "../../components/BookFilterContainer/BookFilterContainer";
+import { ResetApp } from "../../components/ResetApp/ResetApp";
 
 export const Home = () => {
   const originalBooks = BOOKS.library;
@@ -14,6 +15,7 @@ export const Home = () => {
 
   return (
     <div>
+      <ResetApp />
       <BookFilterContainer
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
