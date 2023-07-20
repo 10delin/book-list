@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { normaliceText } from "../../utils/normaliceText";
 import { useState } from "react";
 
-export const SearchBooks = ({ setBooks, originalBooks }) => {
+export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
   const [bookTitle, setBookTitle] = useState("");
 
   const onSearchTitle = (e) => {
@@ -15,19 +15,19 @@ export const SearchBooks = ({ setBooks, originalBooks }) => {
     if (searchTitle.length === 0) {
       alert("No se encontró el libro");
       setBookTitle("");
-      setBooks(originalBooks);
+      setAvaliableBooks(originalBooks);
       return;
     }
-    setBooks(searchTitle);
+    setAvaliableBooks(searchTitle);
   };
 
   const removeFilter = () => {
     setBookTitle("");
-    setBooks(originalBooks);
+    setAvaliableBooks(originalBooks);
   };
 
   return (
-    <>
+    <div>
       <h1>Buscar libro</h1>
       <form onSubmit={onSearchTitle}>
         <input
@@ -41,11 +41,11 @@ export const SearchBooks = ({ setBooks, originalBooks }) => {
         ) : null}
         <input type="submit" value="Buscar"></input>
       </form>
-    </>
+    </div>
   );
 };
 
 SearchBooks.propTypes = {
-  setBooks: PropTypes.func.isRequired,
+  setAvaliableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };

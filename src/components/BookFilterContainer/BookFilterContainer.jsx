@@ -4,17 +4,26 @@ import { PagesNumber } from "../PagesNumber/PagesNumber";
 import { SearchBooks } from "../SearchBooks/SearchBooks";
 import { SelectGenre } from "../SelectGenre/SelectGenre";
 
-export const BookFilterContainer = ({ setBooks, originalBooks }) => {
+export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
   return (
     <div>
-      <SearchBooks setBooks={setBooks} originalBooks={originalBooks} />
-      <SelectGenre setBooks={setBooks} originalBooks={originalBooks} />
-      <PagesNumber setBooks={setBooks} originalBooks={originalBooks} />
+      <SearchBooks
+        originalBooks={originalBooks}
+        setAvaliableBooks={setAvaliableBooks}
+      />
+      <SelectGenre
+        originalBooks={originalBooks}
+        setAvaliableBooks={setAvaliableBooks}
+      />
+      <PagesNumber
+        originalBooks={originalBooks}
+        setAvaliableBooks={setAvaliableBooks}
+      />
     </div>
   );
 };
 
 BookFilterContainer.propTypes = {
-  setBooks: PropTypes.func.isRequired,
+  setAvaliableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };

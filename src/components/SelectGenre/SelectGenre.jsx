@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const SelectGenre = ({ setBooks, originalBooks }) => {
+export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
   const uniqueGenres = [
     ...new Set(originalBooks.map((book) => book.book.genre)),
   ];
@@ -8,17 +8,17 @@ export const SelectGenre = ({ setBooks, originalBooks }) => {
   const onGenreValue = (e) => {
     const genreValue = e.target.value;
     if (genreValue === "") {
-      setBooks(originalBooks);
+      setAvaliableBooks(originalBooks);
       return;
     }
     const booksByGenre = originalBooks.filter(
       (book) => book.book.genre === genreValue
     );
-    setBooks(booksByGenre);
+    setAvaliableBooks(booksByGenre);
   };
 
   return (
-    <>
+    <div>
       <h1>Genero</h1>
       <select onChange={onGenreValue}>
         <option value="">Todos</option>
@@ -30,11 +30,11 @@ export const SelectGenre = ({ setBooks, originalBooks }) => {
           );
         })}
       </select>
-    </>
+    </div>
   );
 };
 
 SelectGenre.propTypes = {
-  setBooks: PropTypes.func.isRequired,
+  setAvaliableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };

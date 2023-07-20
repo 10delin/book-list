@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 
-export const AvaliableBooks = ({ book, setNewBooks, books }) => {
+export const SingleAvaliableBook = ({
+  book,
+  setReadingBooks,
+  avaliableBooks,
+}) => {
   const addBook = (e) => {
     const selectedBookTitle = e.target.textContent;
-    const book = books.library.find(
+    const book = avaliableBooks.find(
       (book) => book.book.title === selectedBookTitle
     );
-    setNewBooks((prevNewBooks) => [...prevNewBooks, book]);
+    setReadingBooks((prevNewBooks) => [...prevNewBooks, book]);
   };
 
   return (
@@ -18,9 +22,8 @@ export const AvaliableBooks = ({ book, setNewBooks, books }) => {
   );
 };
 
-AvaliableBooks.propTypes = {
+SingleAvaliableBook.propTypes = {
   book: PropTypes.object.isRequired,
-  setNewBooks: PropTypes.func.isRequired,
-  setBooks: PropTypes.func.isRequired,
-  books: PropTypes.object.isRequired,
+  setReadingBooks: PropTypes.func.isRequired,
+  avaliableBooks: PropTypes.array.isRequired,
 };

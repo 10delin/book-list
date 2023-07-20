@@ -1,7 +1,7 @@
 import { useState } from "react";
 import propTypes from "prop-types";
 
-export const PagesNumber = ({ setBooks, originalBooks }) => {
+export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
   const [maxPages, setMaxPages] = useState("");
 
   const onFilterPages = (e) => {
@@ -13,15 +13,15 @@ export const PagesNumber = ({ setBooks, originalBooks }) => {
 
     if (filterPages.length === 0) {
       alert("No hay libros con esas paginas");
-      setBooks(originalBooks);
+      setAvaliableBooks(originalBooks);
       setMaxPages("");
       return;
     }
-    setBooks(filterPages);
+    setAvaliableBooks(filterPages);
   };
 
   return (
-    <>
+    <div>
       <h1>Numero paginas</h1>
       <form onSubmit={onFilterPages}>
         <input
@@ -31,11 +31,11 @@ export const PagesNumber = ({ setBooks, originalBooks }) => {
           onChange={(e) => setMaxPages(e.target.value)}
         />
       </form>
-    </>
+    </div>
   );
 };
 
 PagesNumber.propTypes = {
-  setBooks: propTypes.func.isRequired,
+  setAvaliableBooks: propTypes.func.isRequired,
   originalBooks: propTypes.array.isRequired,
 };

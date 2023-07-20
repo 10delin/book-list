@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { priorityName } from "../../utils/priorityName";
 
-export const SingleReadingBook = ({ book, newBooks, setNewBooks }) => {
+export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
   const [priority, setPriority] = useState(book?.priority ?? 1);
 
   const changePriority = (option) => {
@@ -17,12 +17,12 @@ export const SingleReadingBook = ({ book, newBooks, setNewBooks }) => {
   };
 
   useEffect(() => {
-    const newBooksCopy = [...newBooks];
+    const newBooksCopy = [...readingBooks];
     const index = newBooksCopy.findIndex(
       (bookCopy) => bookCopy.book.title === book.book.title
     );
     newBooksCopy[index].priority = priority;
-    setNewBooks(newBooksCopy);
+    setReadingBooks(newBooksCopy);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [priority]);
 
@@ -42,6 +42,6 @@ export const SingleReadingBook = ({ book, newBooks, setNewBooks }) => {
 
 SingleReadingBook.propTypes = {
   book: PropTypes.object.isRequired,
-  newBooks: PropTypes.array.isRequired,
-  setNewBooks: PropTypes.func.isRequired,
+  readingBooks: PropTypes.array.isRequired,
+  setReadingBooks: PropTypes.func.isRequired,
 };
