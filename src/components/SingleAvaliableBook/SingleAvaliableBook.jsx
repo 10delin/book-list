@@ -7,7 +7,7 @@ export const SingleAvaliableBook = ({
 }) => {
   const addBook = (e) => {
     const selectedBookTitle = e.target.alt;
-    const book = avaliableBooks.find(
+    const book = [...avaliableBooks].find(
       (book) => book.book.title === selectedBookTitle
     );
     setReadingBooks((prevNewBooks) => [...prevNewBooks, book]);

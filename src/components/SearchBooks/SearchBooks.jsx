@@ -8,7 +8,7 @@ export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
   const onSearchTitle = (e) => {
     e.preventDefault();
 
-    const searchTitle = originalBooks.filter((book) =>
+    const searchTitle = [...originalBooks].filter((book) =>
       normaliceText(book.book.title).includes(normaliceText(bookTitle))
     );
 

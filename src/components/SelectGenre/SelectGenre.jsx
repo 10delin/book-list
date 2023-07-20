@@ -11,7 +11,7 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
       setAvaliableBooks(originalBooks);
       return;
     }
-    const booksByGenre = originalBooks.filter(
+    const booksByGenre = [...originalBooks].filter(
       (book) => book.book.genre === genreValue
     );
     setAvaliableBooks(booksByGenre);

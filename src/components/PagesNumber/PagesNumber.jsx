@@ -7,7 +7,7 @@ export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
   const onFilterPages = (e) => {
     e.preventDefault();
 
-    const filterPages = originalBooks.filter(
+    const filterPages = [...originalBooks].filter(
       (book) => book.book.pages <= maxPages
     );
 

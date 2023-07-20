@@ -2,7 +2,9 @@ import PropTypes from "prop-types";
 import { SingleReadingBook } from "../SingleReadingBook/SingleReadingBook";
 
 export const ReadingBooksContainer = ({ readingBooks, setReadingBooks }) => {
-  const bookPriority = readingBooks.sort((a, b) => b.priority - a.priority);
+  const bookPriority = [...readingBooks].sort(
+    (a, b) => b.priority - a.priority
+  );
 
   return (
     <div>
