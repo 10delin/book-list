@@ -20,7 +20,7 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
   return (
     <div>
       <h1>Genero</h1>
-      <select onChange={onGenreValue}>
+      <select data-cy="select-genre" onChange={onGenreValue}>
         <option value="">Todos</option>
         {uniqueGenres.map((genre, index) => {
           return (

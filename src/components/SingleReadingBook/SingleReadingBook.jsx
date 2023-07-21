@@ -37,14 +37,24 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
 
   return (
     <div>
-      <button onClick={removeBook}>❌</button>
+      <button data-cy="remove-reading-book" onClick={removeBook}>
+        ❌
+      </button>
       <p>{book.book.title}</p>
       <img src={book.book.cover} alt={book.book.title} width={200} />
-      <button disabled={priority === 2} onClick={() => changePriority("sum")}>
+      <button
+        data-cy="up-priority"
+        disabled={priority === 2}
+        onClick={() => changePriority("sum")}
+      >
         ⬆
       </button>
       <span>{priorityName(book?.priority ?? priority)}</span>
-      <button disabled={priority === 0} onClick={() => changePriority("res")}>
+      <button
+        data-cy="down-priority"
+        disabled={priority === 0}
+        onClick={() => changePriority("res")}
+      >
         ⬇
       </button>
     </div>

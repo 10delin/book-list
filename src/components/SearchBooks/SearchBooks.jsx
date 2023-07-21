@@ -35,11 +35,12 @@ export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
           placeholder="Escribe el nombre del libro"
           value={bookTitle}
           onChange={(e) => setBookTitle(e.target.value)}
+          data-cy="input-search"
         />
         {bookTitle ? (
           <input type="button" onClick={removeFilter} value="❌"></input>
         ) : null}
-        <input type="submit" value="Buscar"></input>
+        <input data-cy="button-search" type="submit" value="Buscar" />
       </form>
     </div>
   );

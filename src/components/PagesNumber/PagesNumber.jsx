@@ -29,7 +29,9 @@ export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
           placeholder="Numero de páginas"
           value={maxPages}
           onChange={(e) => setMaxPages(e.target.value)}
+          data-cy="input-pages"
         />
+        <input data-cy="button-pages" type="submit" value="Buscar" />
       </form>
     </div>
   );

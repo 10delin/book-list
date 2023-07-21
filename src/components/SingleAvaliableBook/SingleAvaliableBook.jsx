@@ -22,6 +22,7 @@ export const SingleAvaliableBook = ({
         src={book.book.cover}
         alt={book.book.title}
         width={200}
+        data-cy="avaliable-book"
       />
     </div>
   );
