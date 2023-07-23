@@ -1,6 +1,30 @@
-import PropTypes from "prop-types";
-import { SingleAvaliableBook } from "../SingleAvaliableBook/SingleAvaliableBook";
 import { useMemo } from "react";
+
+import PropTypes from "prop-types";
+import styled from "styled-components";
+
+import { SingleAvaliableBook } from "../SingleAvaliableBook/SingleAvaliableBook";
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+`;
+
+const StyledContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+const StyledTitle = styled.h1`
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 2.5rem;
+  font-weight: 500;
+`;
 
 export const AvaliableBooksContainer = ({
   avaliableBooks,
@@ -23,17 +47,19 @@ export const AvaliableBooksContainer = ({
   }, [filteredBooks]);
 
   return (
-    <div>
-      <h1>Libros disponibles: {filteredBooks.length}</h1>
-      {alphabeticallySortedBooks.map((book) => (
-        <SingleAvaliableBook
-          key={book.book.title}
-          book={book}
-          avaliableBooks={avaliableBooks}
-          setReadingBooks={setReadingBooks}
-        />
-      ))}
-    </div>
+    <StyledWrapper>
+      <StyledTitle>Libros disponibles: {filteredBooks.length}</StyledTitle>
+      <StyledContent>
+        {alphabeticallySortedBooks.map((book) => (
+          <SingleAvaliableBook
+            key={book.book.title}
+            book={book}
+            avaliableBooks={avaliableBooks}
+            setReadingBooks={setReadingBooks}
+          />
+        ))}
+      </StyledContent>
+    </StyledWrapper>
   );
 };
 
