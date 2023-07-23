@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
 const StyledContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 `;
 
