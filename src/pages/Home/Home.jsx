@@ -15,6 +15,7 @@ const StyleBooksContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+  margin: 0 1rem;
 `;
 
 export const Home = () => {

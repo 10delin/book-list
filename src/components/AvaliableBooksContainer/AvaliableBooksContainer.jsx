@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
   padding-right: ${({ $readingBooks }) =>
     $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
 `;
@@ -22,9 +23,13 @@ const StyledTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
-  padding-bottom: 1rem;
+  padding: 1rem;
+  margin: 0;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #030303;
+  border-bottom: 1px solid #314263;
+  background-color: #314263;
+  color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 `;
 
 export const AvaliableBooksContainer = ({
