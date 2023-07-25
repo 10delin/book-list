@@ -8,6 +8,7 @@ import { ReadingBooksContainer } from "../../components/ReadingBooksContainer/Re
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Header } from "../../components/Header/Header";
 import { FilterContainer } from "../../components/FilterContainer/FilterContainer";
+import { ChangeLanguage } from "../../components/ChangeLanguage/ChangeLanguage";
 
 const StyleBooksContainer = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ export const Home = () => {
   return (
     <div>
       <Header />
+      <ChangeLanguage />
       <FilterContainer
         originalBooks={originalBooks}
         readingBooks={readingBooks}

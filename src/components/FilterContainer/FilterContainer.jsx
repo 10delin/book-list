@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 150px 0 80px 0;
+  margin: 220px 0 80px 0;
   background-color: #f3f3f3;
   color: #000000;
   text-align: center;

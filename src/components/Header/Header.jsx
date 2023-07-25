@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   top: 0;
@@ -6,7 +7,7 @@ const StyledWrapper = styled.div`
   background-color: #314263;
   color: #ffffff;
   border-bottom: 2px solid #4e4e4e;
-  box-shadow: 0 1px 2cm 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.6);
   padding: 20px;
   text-align: center;
   position: fixed;
@@ -22,9 +23,10 @@ const StyledTitle = styled.h1`
 `;
 
 export const Header = () => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper>
-      <StyledTitle>Editoriales JavaScript </StyledTitle>
+      <StyledTitle>{t("home.title")}</StyledTitle>
     </StyledWrapper>
   );
 };

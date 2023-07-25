@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -37,6 +38,8 @@ const StyledOption = styled.option`
 `;
 
 export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
+  const { t } = useTranslation();
+
   const uniqueGenres = [
     ...new Set(originalBooks.map((book) => book.book.genre)),
   ];
@@ -55,9 +58,9 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
 
   return (
     <StyledWrapper>
-      <StyledTitle>Genero</StyledTitle>
+      <StyledTitle>{t("home.genre")}</StyledTitle>
       <StyledSelect data-cy="select-genre" onChange={onGenreValue}>
-        <StyledOption value="">Todos</StyledOption>
+        <StyledOption value="">{t("home.allBooks")}</StyledOption>
         {uniqueGenres.map((genre, index) => {
           return (
             <StyledOption key={index} value={genre}>

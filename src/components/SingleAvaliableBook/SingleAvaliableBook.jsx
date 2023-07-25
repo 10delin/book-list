@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -77,6 +78,8 @@ export const SingleAvaliableBook = ({
   setReadingBooks,
   avaliableBooks,
 }) => {
+  const { t } = useTranslation();
+
   const addBook = (e) => {
     const selectedBookTitle = e.target.value;
     const book = [...avaliableBooks].find(
@@ -96,7 +99,7 @@ export const SingleAvaliableBook = ({
             value={book.book.title}
             data-cy="avaliable-book"
           >
-            Añadir
+            {t("home.addBook")}
           </StyledAddButton>
         </StyledHoverContent>
       </StyledHoverContainer>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import propTypes from "prop-types";
 import Slider from "rc-slider";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -56,6 +57,8 @@ const StyledSlider = styled(Slider)`
 `;
 
 export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
+  const { t } = useTranslation();
+
   const defaultPages = 600;
   const [maxPages, setMaxPages] = useState(defaultPages);
 
@@ -75,7 +78,7 @@ export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
 
   return (
     <StyledWrapper>
-      <StyledTitle>Numero paginas</StyledTitle>
+      <StyledTitle>{t("home.numberPages")}</StyledTitle>
       <StyledInput
         type="text"
         placeholder="Numero de páginas"

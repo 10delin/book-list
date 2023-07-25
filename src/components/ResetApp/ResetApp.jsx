@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -28,6 +29,7 @@ const StyledButton = styled.button`
 `;
 
 export const ResetApp = () => {
+  const { t } = useTranslation();
   const onReset = () => {
     localStorage.clear();
     window.location.reload();
@@ -35,7 +37,7 @@ export const ResetApp = () => {
 
   return (
     <StyledWrapper>
-      <StyledButton onClick={onReset}>Reiniciar App</StyledButton>
+      <StyledButton onClick={onReset}>{t("home.resetApp")}</StyledButton>
     </StyledWrapper>
   );
 };

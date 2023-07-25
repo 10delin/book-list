@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { priorityName } from "../../utils/priorityName";
 import { PriorityButton } from "../PriorityButton/PriorityButton";
 import { PriorityIcon } from "../PriorityIcon/PriorityIcon";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapperButtons = styled.div`
   display: flex;
@@ -80,6 +80,8 @@ const StyledImg = styled.img`
 export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
   const [priority, setPriority] = useState(book?.priority ?? 1);
 
+  const { t } = useTranslation();
+
   const removeBook = () => {
     const newBooksCopy = [...readingBooks];
     const index = newBooksCopy.findIndex(
@@ -87,6 +89,15 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
     );
     newBooksCopy.splice(index, 1);
     setReadingBooks(newBooksCopy);
+  };
+
+  const priorityName = (priority) => {
+    const priorityMap = {
+      0: t("home.priority.low"),
+      1: t("home.priority.medium"),
+      2: t("home.priority.high"),
+    };
+    return priorityMap[priority];
   };
 
   useEffect(() => {

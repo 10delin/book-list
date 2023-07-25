@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { SingleAvaliableBook } from "../SingleAvaliableBook/SingleAvaliableBook";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -31,6 +32,8 @@ export const AvaliableBooksContainer = ({
   readingBooks,
   setReadingBooks,
 }) => {
+  const { t } = useTranslation();
+
   const filteredBooks = useMemo(() => {
     if (readingBooks.length === 0) {
       return avaliableBooks;
@@ -50,7 +53,9 @@ export const AvaliableBooksContainer = ({
 
   return (
     <StyledWrapper $readingBooks={readingBooks}>
-      <StyledTitle>Libros disponibles: {filteredBooks.length}</StyledTitle>
+      <StyledTitle>
+        {t("home.availableBooks")} {filteredBooks.length}
+      </StyledTitle>
       <StyledContent>
         {alphabeticallySortedBooks.map((book) => (
           <SingleAvaliableBook

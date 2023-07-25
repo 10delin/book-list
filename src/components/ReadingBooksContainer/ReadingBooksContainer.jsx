@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { SingleReadingBook } from "../SingleReadingBook/SingleReadingBook";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -41,6 +42,8 @@ const StyledTitle = styled.h3`
 `;
 
 export const ReadingBooksContainer = ({ readingBooks, setReadingBooks }) => {
+  const { t } = useTranslation();
+
   const bookPriority = [...readingBooks].sort(
     (a, b) => b.priority - a.priority
   );
@@ -48,7 +51,10 @@ export const ReadingBooksContainer = ({ readingBooks, setReadingBooks }) => {
   return (
     bookPriority.length > 0 && (
       <StyledWrapper>
-        <StyledTitle>Libros de lectura: {readingBooks.length}</StyledTitle>
+        <StyledTitle>
+          {t("home.readingBooks")}
+          {readingBooks.length}
+        </StyledTitle>
         <StyledContent>
           {bookPriority.map((book) => (
             <SingleReadingBook

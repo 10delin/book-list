@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { normaliceText } from "../../utils/normaliceText";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -55,6 +56,8 @@ const StyledRemoveButton = styled.input`
 export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
   const [bookTitle, setBookTitle] = useState("");
 
+  const { t } = useTranslation();
+
   const onSearchTitle = (e) => {
     e.preventDefault();
 
@@ -78,12 +81,12 @@ export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
 
   return (
     <StyledWrapper>
-      <StyledTitle>Buscar libro</StyledTitle>
+      <StyledTitle>{t("home.searchBook")}</StyledTitle>
       <form onSubmit={onSearchTitle}>
         <StyledInputContainer>
           <StyledInput
             type="text"
-            placeholder="Escribe el nombre del libro"
+            placeholder={t("home.writeBookName")}
             value={bookTitle}
             onChange={(e) => setBookTitle(e.target.value)}
             data-cy="input-search"
