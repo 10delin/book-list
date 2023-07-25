@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import "rc-slider/assets/index.css";
 
 import { PagesNumber } from "../PagesNumber/PagesNumber";
 import { SearchBooks } from "../SearchBooks/SearchBooks";
