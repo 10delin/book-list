@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { BookFilterContainer } from "../../components/BookFilterContainer/BookFilterContainer";
 import { ResetApp } from "../../components/ResetApp/ResetApp";
 import { styled } from "styled-components";
+import { Header } from "../../components/Header/Header";
 
 const StyleBooksContainer = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ export const Home = () => {
 
   return (
     <div>
+      <Header />
       <ResetApp />
       <BookFilterContainer
         originalBooks={originalBooks}
