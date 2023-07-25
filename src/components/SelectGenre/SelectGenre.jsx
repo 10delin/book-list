@@ -1,4 +1,39 @@
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledTitle = styled.h3`
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+`;
+
+const StyledSelect = styled.select`
+  width: 100%;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  background-color: #ffffff;
+`;
+
+const StyledOption = styled.option`
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+`;
 
 export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
   const uniqueGenres = [
@@ -18,19 +53,19 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
   };
 
   return (
-    <div>
-      <h1>Genero</h1>
-      <select data-cy="select-genre" onChange={onGenreValue}>
-        <option value="">Todos</option>
+    <StyledWrapper>
+      <StyledTitle>Genero</StyledTitle>
+      <StyledSelect data-cy="select-genre" onChange={onGenreValue}>
+        <StyledOption value="">Todos</StyledOption>
         {uniqueGenres.map((genre, index) => {
           return (
-            <option key={index} value={genre}>
+            <StyledOption key={index} value={genre}>
               {genre}
-            </option>
+            </StyledOption>
           );
         })}
-      </select>
-    </div>
+      </StyledSelect>
+    </StyledWrapper>
   );
 };
 

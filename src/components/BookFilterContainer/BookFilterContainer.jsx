@@ -10,17 +10,17 @@ const StyledWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  margin: 0 0 20px 0;
+  margin: 0 0 40px 0;
 `;
 
 export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
   return (
     <StyledWrapper>
-      <SearchBooks
+      <SelectGenre
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
-      <SelectGenre
+      <SearchBooks
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
