@@ -8,12 +8,14 @@ const StyledWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  padding: 20px 50px;
+  padding: 80px 50px;
+  border-left: 2px solid #4e4e4e;
   position: fixed;
   bottom: 0px;
   top: 0px;
   right: 0px;
-  background-color: #b4b4b4;
+  background-color: #314263;
+  box-shadow: 0 5px 1cm 0 rgba(0, 0, 0, 0.3);
   overflow-x: auto;
   overflow-y: auto;
 `;

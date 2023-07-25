@@ -3,10 +3,10 @@ import styled from "styled-components";
 const StyledWrapper = styled.div`
   top: 0;
   left: 0;
-  background-color: #aaaaaa;
+  background-color: #314263;
   color: #ffffff;
   border-bottom: 2px solid #4e4e4e;
-  box-shadow: 0 2px 5cm 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2cm 0 rgba(0, 0, 0, 0.6);
   padding: 20px;
   text-align: center;
   position: fixed;
