@@ -1,3 +1,32 @@
+import styled from "styled-components";
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 0 20px 0;
+  width: 100%;
+`;
+
+const StyledButton = styled.button`
+  background-color: #c02828;
+  color: #ffffff;
+  text-align: center;
+  padding: 7px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 100%;
+  &:hover {
+    background-color: #691212;
+    color: #ffffff;
+  }
+`;
+
 export const ResetApp = () => {
   const onReset = () => {
     localStorage.clear();
@@ -5,9 +34,8 @@ export const ResetApp = () => {
   };
 
   return (
-    <div>
-      <h1>ResetApp</h1>
-      <button onClick={onReset}>Reset</button>
-    </div>
+    <StyledWrapper>
+      <StyledButton onClick={onReset}>Reiniciar App</StyledButton>
+    </StyledWrapper>
   );
 };

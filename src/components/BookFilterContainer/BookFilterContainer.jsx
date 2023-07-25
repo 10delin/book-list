@@ -1,13 +1,21 @@
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { PagesNumber } from "../PagesNumber/PagesNumber";
 import { SearchBooks } from "../SearchBooks/SearchBooks";
 import { SelectGenre } from "../SelectGenre/SelectGenre";
-import { ResetFilter } from "../ResetFilter/ResetFilter";
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 0 20px 0;
+`;
 
 export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
   return (
-    <div>
+    <StyledWrapper>
       <SearchBooks
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
@@ -20,11 +28,7 @@ export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
-      <ResetFilter
-        originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
-      />
-    </div>
+    </StyledWrapper>
   );
 };
 

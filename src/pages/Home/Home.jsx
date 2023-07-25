@@ -1,14 +1,13 @@
 import { useState } from "react";
 
 import BOOKS from "../../utils/books.json";
+import { styled } from "styled-components";
 
 import { AvaliableBooksContainer } from "../../components/AvaliableBooksContainer/AvaliableBooksContainer";
 import { ReadingBooksContainer } from "../../components/ReadingBooksContainer/ReadingBooksContainer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { BookFilterContainer } from "../../components/BookFilterContainer/BookFilterContainer";
-import { ResetApp } from "../../components/ResetApp/ResetApp";
-import { styled } from "styled-components";
 import { Header } from "../../components/Header/Header";
+import { FilterContainer } from "../../components/FilterContainer/FilterContainer";
 
 const StyleBooksContainer = styled.div`
   display: flex;
@@ -25,9 +24,10 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <ResetApp />
-      <BookFilterContainer
+      <FilterContainer
         originalBooks={originalBooks}
+        readingBooks={readingBooks}
+        avaliableBooks={avaliableBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
       <StyleBooksContainer>
