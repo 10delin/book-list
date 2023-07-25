@@ -18,6 +18,7 @@ const StyledTitle = styled.h3`
 const StyledSelect = styled.select`
   width: 100%;
   height: 40px;
+  margin-top: 3px;
   border: 1px solid #000000;
   border-radius: 5px;
   padding: 0 10px;
