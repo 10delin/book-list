@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   background-color: ${({ option }) =>
-    option === "sum" ? "#4CAF50" : option === "res" ? "#FF5722" : "#838383"};
+    option === "sum" ? "#F44336" : option === "res" ? "#FFC107" : "#838383"};
   color: white;
   border: none;
   width: 100%;
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
 
   &:hover {
     background-color: ${({ option }) =>
-      option === "sum" ? "#38833a" : option === "res" ? "#c54119" : "#000"};
+      option === "sum" ? "#ff1100" : option === "res" ? "#b68903" : "#000"};
   }
 
   &:disabled {

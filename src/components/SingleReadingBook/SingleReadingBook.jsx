@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { priorityName } from "../../utils/priorityName";
 import { PriorityButton } from "../PriorityButton/PriorityButton";
+import { PriorityIcon } from "../PriorityIcon/PriorityIcon";
 
 const StyledWrapperButtons = styled.div`
   display: flex;
@@ -104,6 +105,7 @@ export const SingleReadingBook = ({ book, readingBooks, setReadingBooks }) => {
         <StyledRemoveButton data-cy="remove-reading-book" onClick={removeBook}>
           ❌
         </StyledRemoveButton>
+        <PriorityIcon priority={priority} />
         <StyledImg src={book.book.cover} alt={book.book.title} width={200} />
         <StyledHoverContent>
           <StyledWrapperButtons>
