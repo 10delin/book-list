@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { SingleAvaliableBook } from "../SingleAvaliableBook/SingleAvaliableBook";
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: ${({ $readingBooks }) =>
+    $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
+`;
 
 const StyledContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-right: ${({ $readingBooks }) =>
-    $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
 `;
 
 const StyledTitle = styled.h1`
@@ -46,9 +49,9 @@ export const AvaliableBooksContainer = ({
   }, [filteredBooks]);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper $readingBooks={readingBooks}>
       <StyledTitle>Libros disponibles: {filteredBooks.length}</StyledTitle>
-      <StyledContent $readingBooks={readingBooks}>
+      <StyledContent>
         {alphabeticallySortedBooks.map((book) => (
           <SingleAvaliableBook
             key={book.book.title}
