@@ -6,7 +6,6 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1rem;
-  padding: 1rem;
 `;
 
 const StyledImg = styled.img`
@@ -16,7 +15,6 @@ const StyledImg = styled.img`
   max-width: 250px;
   height: 400px;
   max-height: 400px;
-  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
@@ -33,15 +31,21 @@ const StyledHoverContent = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  padding: 5px 10px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.3s;
 `;
 
-const StyledTitle = styled.h3`
+const StyledTitle = styled.h2`
   color: white;
   margin-bottom: 5px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 `;
 
 const StyledAddButton = styled.button`

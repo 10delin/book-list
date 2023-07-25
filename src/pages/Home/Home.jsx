@@ -7,6 +7,14 @@ import { ReadingBooksContainer } from "../../components/ReadingBooksContainer/Re
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { BookFilterContainer } from "../../components/BookFilterContainer/BookFilterContainer";
 import { ResetApp } from "../../components/ResetApp/ResetApp";
+import { styled } from "styled-components";
+
+const StyleBooksContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+`;
 
 export const Home = () => {
   const originalBooks = BOOKS.library;
@@ -20,15 +28,17 @@ export const Home = () => {
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
-      <AvaliableBooksContainer
-        avaliableBooks={avaliableBooks}
-        readingBooks={readingBooks}
-        setReadingBooks={setReadingBooks}
-      />
-      <ReadingBooksContainer
-        readingBooks={readingBooks}
-        setReadingBooks={setReadingBooks}
-      />
+      <StyleBooksContainer>
+        <AvaliableBooksContainer
+          avaliableBooks={avaliableBooks}
+          readingBooks={readingBooks}
+          setReadingBooks={setReadingBooks}
+        />
+        <ReadingBooksContainer
+          readingBooks={readingBooks}
+          setReadingBooks={setReadingBooks}
+        />
+      </StyleBooksContainer>
     </div>
   );
 };
