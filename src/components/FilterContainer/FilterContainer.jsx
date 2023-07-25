@@ -30,12 +30,11 @@ export const FilterContainer = ({
         originalBooks={originalBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
-      {avaliableBooks.length !== originalBooks.length ? (
-        <ResetFilter
-          originalBooks={originalBooks}
-          setAvaliableBooks={setAvaliableBooks}
-        />
-      ) : null}
+      <ResetFilter
+        avaliableBooks={avaliableBooks}
+        originalBooks={originalBooks}
+        setAvaliableBooks={setAvaliableBooks}
+      />
     </StyledWrapper>
   );
 };

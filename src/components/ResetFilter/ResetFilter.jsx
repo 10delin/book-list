@@ -11,31 +11,49 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #2472e7;
+  background-color: #dbdbdb;
   color: #ffffff;
   text-align: center;
   padding: 7px;
   border: 2px solid #ffffff;
   border-radius: 5px;
   margin-top: 20px;
-  cursor: pointer;
   font-size: 1.5rem;
   font-weight: 600;
   width: 100%;
-  &:hover {
-    background-color: #0a3474;
-    color: #ffffff;
+
+  ${({ $avaliableBooks, $originalBooks }) =>
+    $avaliableBooks.length !== $originalBooks.length
+      ? `
+      background-color: #2472e7;
+      &:hover {
+        background-color: #0a3474;
+        color: #ffffff;
+        cursor: pointer;
   }
+      ;
+`
+      : null}
 `;
 
-export const ResetFilter = ({ setAvaliableBooks, originalBooks }) => {
+export const ResetFilter = ({
+  avaliableBooks,
+  setAvaliableBooks,
+  originalBooks,
+}) => {
   const handleReset = () => {
     setAvaliableBooks(originalBooks);
   };
 
   return (
     <StyledWrapper>
-      <StyledButton onClick={handleReset}>Reiniciar Filtro</StyledButton>
+      <StyledButton
+        $avaliableBooks={avaliableBooks}
+        $originalBooks={originalBooks}
+        onClick={handleReset}
+      >
+        Reiniciar Filtro
+      </StyledButton>
     </StyledWrapper>
   );
 };
@@ -43,4 +61,5 @@ export const ResetFilter = ({ setAvaliableBooks, originalBooks }) => {
 ResetFilter.propTypes = {
   setAvaliableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
+  avaliableBooks: PropTypes.array.isRequired,
 };
