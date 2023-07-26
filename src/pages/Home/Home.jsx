@@ -24,6 +24,8 @@ const StyleBooksContainer = styled.div`
     align-items: center;
     margin: 0;
     padding-right: 0rem;
+    padding-bottom: ${({ $readingBooks }) =>
+      $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
   }
 `;
 
