@@ -16,6 +16,8 @@ const StyleBooksContainer = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin: 0 1rem;
+  padding-right: ${({ $readingBooks }) =>
+    $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
 `;
 
 export const Home = () => {
@@ -33,7 +35,7 @@ export const Home = () => {
         avaliableBooks={avaliableBooks}
         setAvaliableBooks={setAvaliableBooks}
       />
-      <StyleBooksContainer>
+      <StyleBooksContainer $readingBooks={readingBooks}>
         <AvaliableBooksContainer
           avaliableBooks={avaliableBooks}
           readingBooks={readingBooks}

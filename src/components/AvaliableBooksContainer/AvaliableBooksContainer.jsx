@@ -8,8 +8,6 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  padding-right: ${({ $readingBooks }) =>
-    $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
 `;
 
 const StyledContent = styled.div`
@@ -57,7 +55,7 @@ export const AvaliableBooksContainer = ({
   }, [filteredBooks]);
 
   return (
-    <StyledWrapper $readingBooks={readingBooks}>
+    <StyledWrapper>
       <StyledTitle>
         {t("home.availableBooks")} {filteredBooks.length}
       </StyledTitle>

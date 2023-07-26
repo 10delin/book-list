@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
 
 const StyledContent = styled.div`
   display: flex;
-  background-color: ${({ isSpanish }) => (isSpanish ? "#699eec" : "#dbdbdb")};
+  background-color: ${({ $isSpanish }) => ($isSpanish ? "#699eec" : "#dbdbdb")};
   color: #ffffff;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,8 @@ const StyledContent = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ isSpanish }) => (isSpanish ? "#2472e7" : "#699eec")};
+    background-color: ${({ $isSpanish }) =>
+      $isSpanish ? "#2472e7" : "#699eec"};
   }
 `;
 
@@ -56,14 +57,14 @@ export const ChangeLanguage = () => {
   return (
     <StyledWrapper>
       <StyledContent
-        isSpanish={isSpanish}
+        $isSpanish={isSpanish}
         onClick={() => setLanguage("es")}
         data-cy="es-lang"
       >
         <StyledImage src={SpainIcon} alt="Spanish" />
       </StyledContent>
       <StyledContent
-        isSpanish={!isSpanish}
+        $isSpanish={!isSpanish}
         onClick={() => setLanguage("en")}
         data-cy="en-lang"
       >
