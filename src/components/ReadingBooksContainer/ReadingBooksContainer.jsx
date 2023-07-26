@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
+
 import PropTypes from "prop-types";
 import styled from "styled-components";
+
 import { SingleReadingBook } from "../SingleReadingBook/SingleReadingBook";
-import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
   display: flex;

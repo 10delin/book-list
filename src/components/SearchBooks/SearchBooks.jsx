@@ -1,8 +1,10 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { normaliceText } from "../../utils/normaliceText";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
+import PropTypes from "prop-types";
+import styled from "styled-components";
+
+import { normaliceText } from "../../utils/normaliceText";
 
 const StyledWrapper = styled.div`
   display: flex;

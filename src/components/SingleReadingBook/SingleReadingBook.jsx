@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { PriorityButton } from "../PriorityButton/PriorityButton";
 import { PriorityIcon } from "../PriorityIcon/PriorityIcon";
-import { useTranslation } from "react-i18next";
 
 const StyledWrapperButtons = styled.div`
   display: flex;

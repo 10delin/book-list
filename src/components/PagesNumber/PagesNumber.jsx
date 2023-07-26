@@ -1,8 +1,10 @@
 import { useState } from "react";
-import propTypes from "prop-types";
-import Slider from "rc-slider";
-import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+
+import propTypes from "prop-types";
+import styled from "styled-components";
+
+import Slider from "rc-slider";
 
 const StyledWrapper = styled.div`
   display: flex;
