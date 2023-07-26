@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { useWindowSize } from "../../hooks/useWindowSize";
+
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,7 +30,6 @@ const StyledImg = styled.img`
     height: 300px;
     max-height: 300px;
   }
-  
 `;
 
 const StyledHoverContent = styled.div`
@@ -46,6 +47,14 @@ const StyledHoverContent = styled.div`
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.3s;
+
+  @media (max-width: 768px) {
+    opacity: initial;
+    transition: initial;
+    background-color: initial;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
 `;
 
 const StyledTitle = styled.h2`
@@ -56,6 +65,10 @@ const StyledTitle = styled.h2`
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const StyledAddButton = styled.button`
@@ -69,6 +82,12 @@ const StyledAddButton = styled.button`
 
   &:hover {
     background-color: #0b8a2b;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+    font-size: 10px;
+    border-radius: 100%;
   }
 `;
 
@@ -88,6 +107,7 @@ export const SingleAvaliableBook = ({
   avaliableBooks,
 }) => {
   const { t } = useTranslation();
+  const size = useWindowSize();
 
   const addBook = (e) => {
     const selectedBookTitle = e.target.value;
@@ -108,7 +128,7 @@ export const SingleAvaliableBook = ({
             value={book.book.title}
             data-cy="avaliable-book"
           >
-            {t("home.addBook")}
+            {size.width > 768 ? t("home.addBook") : "➕"}
           </StyledAddButton>
         </StyledHoverContent>
       </StyledHoverContainer>
