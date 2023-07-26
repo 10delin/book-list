@@ -30,16 +30,29 @@ describe("Home Page", () => {
   });
 
   it("should search for books with the search filter", () => {
-    cy.getBySel("input-search").type("Harry Potter");
-    cy.getBySel("button-search").click();
+    cy.getBySel("input-search").type("Harry Potter{enter}");
   });
 
   it("should search for books with the genre select filter", () => {
     cy.getBySel("select-genre").select("Zombies");
   });
 
-  it("should search for books with the number pages filter", () => {
-    cy.getBySel("input-pages").type("400");
-    cy.getBySel("button-pages").click();
+  it("should simulate slider dragging", () => {
+    const sliderHandleSelector = ".rc-slider-handle"; // Selector del slider handle
+
+    cy.getBySel("input-pages").should("have.value", "600"); // Verificar el valor inicial
+
+    // Obtener el slider handle y obtener su posición inicial
+    cy.get(sliderHandleSelector).then(($handle) => {
+      const initialPosition = $handle.position();
+
+      // Mover el handle hacia la derecha (simula el arrastre hacia la derecha)
+      cy.get(sliderHandleSelector)
+        .trigger("mousedown")
+        .trigger("mousemove", { pageX: initialPosition.left + 100 })
+        .trigger("mouseup");
+
+      cy.getBySel("input-pages").should("have.value", "0"); // Verificar que el valor ha cambiado
+    });
   });
 });
