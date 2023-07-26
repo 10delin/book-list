@@ -9,13 +9,18 @@ import { styled } from "styled-components";
 const StyledWrapper = styled.div`
   position: absolute;
   top: 100px;
-  right: left;
+  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   margin: 0 0 20px 0;
   width: 15%;
+
+  @media (max-width: 768px) {
+    top: 80px;
+    width: 100%;
+  }
 `;
 
 const StyledContent = styled.div`

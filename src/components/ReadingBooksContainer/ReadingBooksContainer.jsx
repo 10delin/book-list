@@ -21,6 +21,12 @@ const StyledWrapper = styled.div`
   box-shadow: 0 5px 1cm 0 rgba(0, 0, 0, 0.3);
   overflow-x: auto;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    top: unset;
+    padding: 20px 10px;
+    left: 0;
+  }
 `;
 
 const StyledContent = styled.div`
@@ -29,6 +35,14 @@ const StyledContent = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
 `;
 
 const StyledTitle = styled.h3`
@@ -41,6 +55,12 @@ const StyledTitle = styled.h3`
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid #ffffff;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ReadingBooksContainer = ({ readingBooks, setReadingBooks }) => {

@@ -17,6 +17,14 @@ const StyledPriorityIcon = styled.div`
     $priority === 2 ? "#F44336" : $priority === 1 ? "#FFC107" : "#989999"};
   border-radius: 50%;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    top: -10px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+  }
 `;
 
 const priorityName = (priority) => {

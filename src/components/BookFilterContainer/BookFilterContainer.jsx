@@ -12,6 +12,11 @@ const StyledWrapper = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin: 0 0 40px 0;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {

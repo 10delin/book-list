@@ -35,6 +35,13 @@ const StyledRemoveButton = styled.button`
   &:hover {
     background-color: #b9b9b9;
   }
+
+  @media (max-width: 768px) {
+    top: -10px;
+    right: -15px;
+    padding: 10px 10px;
+    font-size: 5px;
+  }
 `;
 
 const StyledHoverContent = styled.div`
@@ -74,6 +81,13 @@ const StyledImg = styled.img`
 
   &:hover {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
+    max-width: 100px;
+    height: 150px;
+    max-height: 150px;
   }
 `;
 

@@ -21,6 +21,14 @@ const StyledImg = styled.img`
   &:hover {
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 768px) {
+    width: 200px;
+    max-width: 200px;
+    height: 300px;
+    max-height: 300px;
+  }
+  
 `;
 
 const StyledHoverContent = styled.div`

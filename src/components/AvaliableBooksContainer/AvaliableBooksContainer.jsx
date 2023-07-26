@@ -30,6 +30,10 @@ const StyledTitle = styled.h1`
   background-color: #314263;
   color: #fff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const AvaliableBooksContainer = ({

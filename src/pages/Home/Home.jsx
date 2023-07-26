@@ -18,6 +18,13 @@ const StyleBooksContainer = styled.div`
   margin: 0 1rem;
   padding-right: ${({ $readingBooks }) =>
     $readingBooks.length > 0 ? "calc(250px + 50px)" : "0rem"};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding-right: 0rem;
+  }
 `;
 
 export const Home = () => {
