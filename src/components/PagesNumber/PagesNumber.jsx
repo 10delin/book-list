@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const StyledTitle = styled.h3`
+const StyledTitle = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
@@ -55,6 +55,7 @@ const StyledSlider = styled(Slider)`
     border: 1px solid #000000;
     background-color: #ffffff;
     opacity: 1;
+    z-index: 0;
   }
 `;
 
@@ -94,6 +95,7 @@ export const PagesNumber = ({ originalBooks, setAvailableBooks }) => {
         max={findMaxPages()}
         onChange={onChangePages}
         data-cy="slider-pages"
+        aria-label="slider"
       />
     </StyledWrapper>
   );

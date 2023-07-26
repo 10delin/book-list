@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const StyledTitle = styled.h3`
+const StyledTitle = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
