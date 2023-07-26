@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { SingleAvaliableBook } from "../SingleAvaliableBook/SingleAvaliableBook";
+import { SingleAvailableBook } from "../SingleAvailableBook/SingleAvailableBook";
 import { useTranslation } from "react-i18next";
 
 const StyledWrapper = styled.div`
@@ -36,8 +36,8 @@ const StyledTitle = styled.h1`
   }
 `;
 
-export const AvaliableBooksContainer = ({
-  avaliableBooks,
+export const AvailableBooksContainer = ({
+  availableBooks,
   readingBooks,
   setReadingBooks,
 }) => {
@@ -45,14 +45,14 @@ export const AvaliableBooksContainer = ({
 
   const filteredBooks = useMemo(() => {
     if (readingBooks.length === 0) {
-      return avaliableBooks;
+      return availableBooks;
     }
 
     const newBooksTitles = [...readingBooks].map((book) => book.book.title);
-    return avaliableBooks.filter(
+    return availableBooks.filter(
       (book) => !newBooksTitles.includes(book.book.title)
     );
-  }, [avaliableBooks, readingBooks]);
+  }, [availableBooks, readingBooks]);
 
   const alphabeticallySortedBooks = useMemo(() => {
     return filteredBooks.sort((a, b) =>
@@ -67,10 +67,10 @@ export const AvaliableBooksContainer = ({
       </StyledTitle>
       <StyledContent>
         {alphabeticallySortedBooks.map((book) => (
-          <SingleAvaliableBook
+          <SingleAvailableBook
             key={book.book.title}
             book={book}
-            avaliableBooks={avaliableBooks}
+            availableBooks={availableBooks}
             setReadingBooks={setReadingBooks}
           />
         ))}
@@ -79,8 +79,8 @@ export const AvaliableBooksContainer = ({
   );
 };
 
-AvaliableBooksContainer.propTypes = {
+AvailableBooksContainer.propTypes = {
   setReadingBooks: PropTypes.func.isRequired,
   readingBooks: PropTypes.array.isRequired,
-  avaliableBooks: PropTypes.array.isRequired,
+  availableBooks: PropTypes.array.isRequired,
 };

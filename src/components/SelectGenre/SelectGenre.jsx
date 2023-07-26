@@ -38,7 +38,7 @@ const StyledOption = styled.option`
   font-family: "Roboto", sans-serif;
 `;
 
-export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
+export const SelectGenre = ({ originalBooks, setAvailableBooks }) => {
   const { t } = useTranslation();
 
   const uniqueGenres = [
@@ -48,13 +48,13 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
   const onGenreValue = (e) => {
     const genreValue = e.target.value;
     if (genreValue === "") {
-      setAvaliableBooks(originalBooks);
+      setAvailableBooks(originalBooks);
       return;
     }
     const booksByGenre = [...originalBooks].filter(
       (book) => book.book.genre === genreValue
     );
-    setAvaliableBooks(booksByGenre);
+    setAvailableBooks(booksByGenre);
   };
 
   return (
@@ -75,6 +75,6 @@ export const SelectGenre = ({ originalBooks, setAvaliableBooks }) => {
 };
 
 SelectGenre.propTypes = {
-  setAvaliableBooks: PropTypes.func.isRequired,
+  setAvailableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };

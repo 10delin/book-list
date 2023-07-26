@@ -6,24 +6,24 @@ describe("Home Page", () => {
   });
 
   it("should add one book to the reading books list", () => {
-    cy.getBySel("avaliable-book").first().click();
+    cy.getBySel("available-book").first().click();
   });
 
   it("should remove one book from the reading book list", () => {
-    cy.getBySel("avaliable-book").first().click();
+    cy.getBySel("available-book").first().click();
     cy.getBySel("remove-reading-book").first().click();
   });
 
   it("should add all books to the reading books list", () => {
-    cy.getBySel("avaliable-book").each((book) => {
+    cy.getBySel("available-book").each((book) => {
       cy.wrap(book).click();
     });
   });
 
   it("should check the state of the books' prority", () => {
-    cy.getBySel("avaliable-book").eq(0).click();
-    cy.getBySel("avaliable-book").eq(1).click();
-    cy.getBySel("avaliable-book").eq(2).click();
+    cy.getBySel("available-book").eq(0).click();
+    cy.getBySel("available-book").eq(1).click();
+    cy.getBySel("available-book").eq(2).click();
 
     cy.getBySel("up-priority").eq(0).click();
     cy.getBySel("down-priority").eq(2).click();

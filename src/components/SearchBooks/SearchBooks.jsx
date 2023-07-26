@@ -55,7 +55,7 @@ const StyledRemoveButton = styled.input`
   z-index: 0;
 `;
 
-export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
+export const SearchBooks = ({ originalBooks, setAvailableBooks }) => {
   const [bookTitle, setBookTitle] = useState("");
 
   const { t } = useTranslation();
@@ -70,15 +70,15 @@ export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
     if (searchTitle.length === 0) {
       alert("No se encontró el libro");
       setBookTitle("");
-      setAvaliableBooks(originalBooks);
+      setAvailableBooks(originalBooks);
       return;
     }
-    setAvaliableBooks(searchTitle);
+    setAvailableBooks(searchTitle);
   };
 
   const removeFilter = () => {
     setBookTitle("");
-    setAvaliableBooks(originalBooks);
+    setAvailableBooks(originalBooks);
   };
 
   return (
@@ -107,6 +107,6 @@ export const SearchBooks = ({ originalBooks, setAvaliableBooks }) => {
 };
 
 SearchBooks.propTypes = {
-  setAvaliableBooks: PropTypes.func.isRequired,
+  setAvailableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };

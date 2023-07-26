@@ -3,7 +3,7 @@ import { useState } from "react";
 import BOOKS from "../../utils/books.json";
 import { styled } from "styled-components";
 
-import { AvaliableBooksContainer } from "../../components/AvaliableBooksContainer/AvaliableBooksContainer";
+import { AvailableBooksContainer } from "../../components/AvailableBooksContainer/AvailableBooksContainer";
 import { ReadingBooksContainer } from "../../components/ReadingBooksContainer/ReadingBooksContainer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Header } from "../../components/Header/Header";
@@ -31,7 +31,7 @@ const StyleBooksContainer = styled.div`
 
 export const Home = () => {
   const originalBooks = BOOKS.library;
-  const [avaliableBooks, setAvaliableBooks] = useState(originalBooks || []);
+  const [availableBooks, setAvailableBooks] = useState(originalBooks || []);
   const [readingBooks, setReadingBooks] = useLocalStorage("newBooks", []);
 
   return (
@@ -41,12 +41,12 @@ export const Home = () => {
       <FilterContainer
         originalBooks={originalBooks}
         readingBooks={readingBooks}
-        avaliableBooks={avaliableBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        availableBooks={availableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
       <StyleBooksContainer $readingBooks={readingBooks}>
-        <AvaliableBooksContainer
-          avaliableBooks={avaliableBooks}
+        <AvailableBooksContainer
+          availableBooks={availableBooks}
           readingBooks={readingBooks}
           setReadingBooks={setReadingBooks}
         />

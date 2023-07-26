@@ -58,7 +58,7 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
+export const PagesNumber = ({ originalBooks, setAvailableBooks }) => {
   const { t } = useTranslation();
 
   const defaultPages = 600;
@@ -70,7 +70,7 @@ export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
       (book) => book.book.pages <= maxPages
     );
 
-    setAvaliableBooks(filterPages);
+    setAvailableBooks(filterPages);
   };
 
   const findMaxPages = () => {
@@ -100,6 +100,6 @@ export const PagesNumber = ({ originalBooks, setAvaliableBooks }) => {
 };
 
 PagesNumber.propTypes = {
-  setAvaliableBooks: propTypes.func.isRequired,
+  setAvailableBooks: propTypes.func.isRequired,
   originalBooks: propTypes.array.isRequired,
 };

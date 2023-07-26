@@ -26,8 +26,8 @@ const StyledWrapper = styled.div`
 
 export const FilterContainer = ({
   originalBooks,
-  avaliableBooks,
-  setAvaliableBooks,
+  availableBooks,
+  setAvailableBooks,
   readingBooks,
 }) => {
   return (
@@ -35,20 +35,20 @@ export const FilterContainer = ({
       <ResetApp />
       <BookFilterContainer
         originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
       <ResetFilter
-        avaliableBooks={avaliableBooks}
+        availableBooks={availableBooks}
         originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
     </StyledWrapper>
   );
 };
 
 FilterContainer.propTypes = {
-  setAvaliableBooks: PropTypes.func.isRequired,
+  setAvailableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
   readingBooks: PropTypes.array.isRequired,
-  avaliableBooks: PropTypes.array.isRequired,
+  availableBooks: PropTypes.array.isRequired,
 };

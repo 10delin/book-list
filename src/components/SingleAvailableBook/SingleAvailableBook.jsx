@@ -101,17 +101,17 @@ const StyledHoverContainer = styled.div`
   }
 `;
 
-export const SingleAvaliableBook = ({
+export const SingleAvailableBook = ({
   book,
   setReadingBooks,
-  avaliableBooks,
+  availableBooks,
 }) => {
   const { t } = useTranslation();
   const size = useWindowSize();
 
   const addBook = (e) => {
     const selectedBookTitle = e.target.value;
-    const book = [...avaliableBooks].find(
+    const book = [...availableBooks].find(
       (book) => book.book.title === selectedBookTitle
     );
     setReadingBooks((prevNewBooks) => [...prevNewBooks, book]);
@@ -126,7 +126,7 @@ export const SingleAvaliableBook = ({
           <StyledAddButton
             onClick={addBook}
             value={book.book.title}
-            data-cy="avaliable-book"
+            data-cy="available-book"
           >
             {size.width > 768 ? t("home.addBook") : "➕"}
           </StyledAddButton>
@@ -136,8 +136,8 @@ export const SingleAvaliableBook = ({
   );
 };
 
-SingleAvaliableBook.propTypes = {
+SingleAvailableBook.propTypes = {
   book: PropTypes.object.isRequired,
   setReadingBooks: PropTypes.func.isRequired,
-  avaliableBooks: PropTypes.array.isRequired,
+  availableBooks: PropTypes.array.isRequired,
 };

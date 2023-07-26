@@ -24,8 +24,8 @@ const StyledButton = styled.button`
   font-weight: 600;
   width: 100%;
 
-  ${({ $avaliableBooks, $originalBooks }) =>
-    $avaliableBooks.length !== $originalBooks.length
+  ${({ $availableBooks, $originalBooks }) =>
+    $availableBooks.length !== $originalBooks.length
       ? `
       background-color: #2472e7;
       &:hover {
@@ -39,20 +39,20 @@ const StyledButton = styled.button`
 `;
 
 export const ResetFilter = ({
-  avaliableBooks,
-  setAvaliableBooks,
+  availableBooks,
+  setAvailableBooks,
   originalBooks,
 }) => {
   const { t } = useTranslation();
 
   const handleReset = () => {
-    setAvaliableBooks(originalBooks);
+    setAvailableBooks(originalBooks);
   };
 
   return (
     <StyledWrapper>
       <StyledButton
-        $avaliableBooks={avaliableBooks}
+        $availableBooks={availableBooks}
         $originalBooks={originalBooks}
         onClick={handleReset}
       >
@@ -63,7 +63,7 @@ export const ResetFilter = ({
 };
 
 ResetFilter.propTypes = {
-  setAvaliableBooks: PropTypes.func.isRequired,
+  setAvailableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
-  avaliableBooks: PropTypes.array.isRequired,
+  availableBooks: PropTypes.array.isRequired,
 };

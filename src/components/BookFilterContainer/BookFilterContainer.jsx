@@ -19,26 +19,26 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export const BookFilterContainer = ({ originalBooks, setAvaliableBooks }) => {
+export const BookFilterContainer = ({ originalBooks, setAvailableBooks }) => {
   return (
     <StyledWrapper>
       <SelectGenre
         originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
       <SearchBooks
         originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
       <PagesNumber
         originalBooks={originalBooks}
-        setAvaliableBooks={setAvaliableBooks}
+        setAvailableBooks={setAvailableBooks}
       />
     </StyledWrapper>
   );
 };
 
 BookFilterContainer.propTypes = {
-  setAvaliableBooks: PropTypes.func.isRequired,
+  setAvailableBooks: PropTypes.func.isRequired,
   originalBooks: PropTypes.array.isRequired,
 };
